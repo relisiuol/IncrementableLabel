@@ -56,7 +56,7 @@ public class IncrementableLabel: UILabel {
 
     private var timer: Timer?
     private var fromValue: Double = 0.0
-    private(set) var toValue: Double = 0.0
+    public(get) var toValue: Double = 0.0
 
     private var duration: TimeInterval = 0.3
     private var progress: TimeInterval = 0.0
