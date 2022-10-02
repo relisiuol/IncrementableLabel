@@ -169,6 +169,7 @@ extension IncrementableLabel {
                 text = String(format: format, currentValue)
             }
         }
+        superview?.layoutSubviews()
         //Update the color
         if let fromColor = fromColor, let toColor = toColor {
             textColor = fromColor.blend(to: toColor, percent: progress / duration)
