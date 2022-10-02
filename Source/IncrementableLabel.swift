@@ -56,7 +56,7 @@ public class IncrementableLabel: UILabel {
 
     private var timer: Timer?
     private var fromValue: Double = 0.0
-    private var toValue: Double = 0.0
+    private(set) var toValue: Double = 0.0
 
     private var duration: TimeInterval = 0.3
     private var progress: TimeInterval = 0.0
@@ -112,6 +112,16 @@ extension IncrementableLabel {
 // MARK: - Incrementation
 
 extension IncrementableLabel {
+
+    public func setManually(_ value: Double, color: UIColor) {
+        self.timer?.invalidate()
+        self.fromValue = value
+        self.toValue = value
+        self.progress = duration
+        self.fromColor = color
+        self.toColor = color
+        updateText()
+    }
 
     private func startIncrementation(fromValue: Double, toValue: Double, duration: Double) {
         self.fromValue = fromValue
